@@ -1,11 +1,11 @@
 # Data
 
-Raw data files for verification scripts.
+Raw observational data files used by the verification scripts.
 
-## Contents
+## Planck 2018 CMB Power Spectra
 
-*Data files pending*
+- `COM_PowerSpect_CMB-TT-binned_R3.01.txt` -- Planck 2018 TT power spectrum (binned)
+- `COM_PowerSpect_CMB-TT-full_R3.01.txt` -- Planck 2018 TT power spectrum (full multipole range)
 
-## Sources
-
-Data sourced from publicly available catalogs with appropriate citations.
+Source: Planck Legacy Archive
+https://pla.esac.esa.int/
