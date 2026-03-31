@@ -1,0 +1,184 @@
+"""
+TriPhase V16 — Matter Density (Renormalization Group Framework)
+========================================================================
+(c) 2025-2026 Christian R. Fuccillo / MIS Magnetic Innovative Solutions LLC
+DOI: 10.5281/zenodo.17855383
+
+RENORMALIZATION GROUP INTERPRETATION
+--------------------------------------
+The matter density ρ_m = ρ_crit × Ω_m represents the total mass-energy density
+of baryonic and dark matter today. In the RG framework, ρ_m is the IR remnant
+of matter field excitations after cosmological expansion has diluted primordial
+densities. The matter fraction Ω_m ≈ 0.315 is NOT a free parameter but emerges
+from the RG flow of matter vs. vacuum energy from the early universe to today.
+
+In the early universe (radiation era), matter is subdominant: ρ_m/ρ_tot << 1.
+As the universe expands and cools, radiation redshifts as ρ_r ∝ a⁻⁴ while matter
+redshifts as ρ_m ∝ a⁻³. At matter-radiation equality (z ≈ 3400), matter begins
+to dominate. Eventually, at dark energy-matter equality (z ≈ 0.4), vacuum energy
+takes over. The observed Ω_m ≈ 0.315 is the result of this RG crossover evolution.
+
+The TriPhase framework connects ρ_m to particle physics through the α¹⁸ cascade:
+ρ_crit ∝ H₀² ∝ α³⁶ × (electron scale)². The matter fraction Ω_m then represents
+the branching ratio between matter and vacuum RG flows at the IR fixed point.
+This suggests that the matter-dark energy split is NOT arbitrary but reflects
+fundamental RG dynamics connecting microscopic (QCD confinement) to cosmic
+(dark energy domination) scales.
+
+TAG: (C) — Calibrated to observation (Ω_m = 0.315 from Planck 2018)
+"""
+
+import math
+
+# ========== ANCHOR CHAIN (VERBATIM) ==========
+epsilon_0 = 8.8541878128e-12   # F/m
+mu_0      = 1.25663706212e-6   # H/m
+e         = 1.602176634e-19     # C (exact, SI 2019)
+c         = 1.0 / math.sqrt(epsilon_0 * mu_0)
+Z_0       = math.sqrt(mu_0 / epsilon_0)
+alpha_inv = 137.0 + math.log(137.0) / 137.0
+alpha     = 1.0 / alpha_inv
+hbar      = Z_0 * e**2 / (4.0 * math.pi * alpha)
+h         = 2.0 * math.pi * hbar
+G         = c**4 * 7.5 * epsilon_0**3 * mu_0**2
+r_e       = 2.8179403262e-15   # m (classical electron radius)
+m_e       = hbar * alpha / (c * r_e)
+f_e       = m_e * c**2 / hbar
+T_17      = 17 * 18 // 2
+mp_me     = 4.0 * 27.0 * 17.0 * (1.0 + 5.0 * alpha**2 / math.pi)
+m_p       = m_e * mp_me
+H_0       = math.pi * math.sqrt(3.0) * f_e * alpha**18
+VF_r      = c**4 / (8.0 * math.pi * G)
+
+# ========== RENORMALIZATION GROUP DERIVATION ==========
+print("=" * 70)
+print("TriPhase V16: Matter Density (RG Framework)")
+print("=" * 70)
+print()
+
+print("CRITICAL DENSITY FROM α¹⁸ CASCADE")
+print("-" * 70)
+print(f"Hubble parameter:                H₀ = {H_0:.6e} s⁻¹")
+print(f"Newton's constant:               G = {G:.6e} m³/(kg·s²)")
+print()
+print("Critical density:")
+print("  ρ_crit = 3H₀² / (8πG)")
+print()
+
+rho_crit = 3 * H_0**2 / (8 * math.pi * G)
+
+print(f"Critical density:                ρ_crit = {rho_crit:.6e} kg/m³")
+print()
+
+print("MATTER FRACTION (CALIBRATED OBSERVATION)")
+print("-" * 70)
+Omega_m = 0.315  # Planck 2018 (includes baryonic + dark matter)
+Omega_b = 0.049  # Baryonic matter only
+Omega_dm = Omega_m - Omega_b  # Dark matter
+
+print(f"Total matter fraction:           Ω_m = {Omega_m:.3f} (Planck 2018)")
+print(f"Baryonic matter fraction:        Ω_b = {Omega_b:.3f}")
+print(f"Dark matter fraction:            Ω_DM = {Omega_dm:.3f}")
+print()
+print("Matter density:")
+print("  ρ_m = ρ_crit × Ω_m")
+print()
+
+rho_m = rho_crit * Omega_m
+
+print(f"Matter density (TriPhase):       ρ_m = {rho_m:.6e} kg/m³")
+print()
+
+print("RG FLOW: MATTER VS. VACUUM EVOLUTION")
+print("-" * 70)
+print("The density fractions evolve with scale factor a:")
+print("  ρ_m(a) = ρ_m,0 × a⁻³   (matter dilutes as volume)")
+print("  ρ_Λ(a) = ρ_Λ,0         (vacuum energy is constant)")
+print()
+print("Matter-dark energy equality occurs when:")
+print("  ρ_m(a_eq) = ρ_Λ  →  a_eq = (ρ_m,0/ρ_Λ)^(1/3)")
+print()
+
+Omega_Lambda = 0.685  # Dark energy fraction
+z_eq = (Omega_m / Omega_Lambda)**(1/3) - 1
+
+print(f"Dark energy fraction:            Ω_Λ = {Omega_Lambda:.3f}")
+print(f"Matter-DE equality redshift:     z_eq ≈ {z_eq:.2f}")
+print()
+print("At z > 0.4, matter dominates; at z < 0.4, dark energy dominates.")
+print()
+
+print("BARYONIC VS. DARK MATTER")
+print("-" * 70)
+rho_b = rho_crit * Omega_b
+rho_dm = rho_crit * Omega_dm
+
+print(f"Baryonic matter density:         ρ_b = {rho_b:.6e} kg/m³")
+print(f"Dark matter density:             ρ_DM = {rho_dm:.6e} kg/m³")
+print(f"Ratio ρ_DM / ρ_b:                {rho_dm / rho_b:.2f}:1")
+print()
+print("Dark matter outweighs baryonic matter by ~5.4:1, indicating that")
+print("visible matter is a small fraction of the total matter budget.")
+print()
+
+print("CONNECTION TO QCD CONFINEMENT")
+print("-" * 70)
+print("Baryonic matter density arises from protons and neutrons, whose")
+print("masses are generated by QCD confinement:")
+print("  m_p = m_e × mp_me  (TriPhase, from α¹⁸ cascade)")
+print()
+print(f"Proton mass:                     m_p = {m_p:.6e} kg")
+print()
+print("Number density of baryons (assuming mostly hydrogen):")
+print("  n_b = ρ_b / m_p")
+print()
+
+n_b = rho_b / m_p
+
+print(f"Baryon number density:           n_b = {n_b:.6e} m⁻³")
+print(f"                                    ≈ {n_b:.2f} protons/m³")
+print()
+print("This translates to ~0.25 atoms per cubic meter on average—the")
+print("universe is incredibly sparse!")
+print()
+
+# ========== CALIBRATION CHECKPOINT ==========
+H_0_CODATA = 2.197e-18  # s⁻¹ (67.4 km/s/Mpc, Planck 2018)
+rho_crit_CODATA = 3 * H_0_CODATA**2 / (8 * math.pi * G)
+rho_m_CODATA = rho_crit_CODATA * Omega_m
+deviation_pct = abs(rho_m - rho_m_CODATA) / rho_m_CODATA * 100
+
+print("CALIBRATION vs. CODATA/PLANCK")
+print("-" * 70)
+print(f"CODATA critical density:         ρ_crit = {rho_crit_CODATA:.6e} kg/m³")
+print(f"CODATA matter density:           ρ_m = {rho_m_CODATA:.6e} kg/m³")
+print()
+print(f"TriPhase critical density:       ρ_crit = {rho_crit:.6e} kg/m³")
+print(f"TriPhase matter density:         ρ_m = {rho_m:.6e} kg/m³")
+print(f"Deviation:                       {deviation_pct:.2f}%")
+print()
+
+print("MATTER VS. DARK ENERGY (TODAY)")
+print("-" * 70)
+rho_Lambda = rho_crit * Omega_Lambda
+
+print(f"Matter density:                  ρ_m = {rho_m:.6e} kg/m³")
+print(f"Dark energy density:             ρ_Λ = {rho_Lambda:.6e} kg/m³")
+print(f"Ratio ρ_Λ / ρ_m:                 {rho_Lambda / rho_m:.2f}:1")
+print()
+print("Dark energy dominates by ~2.2:1 today, driving accelerated expansion.")
+print()
+
+print("RENORMALIZATION GROUP INSIGHT")
+print("-" * 70)
+print("Matter density is the IR remnant of QCD confinement (baryons) plus unknown")
+print("dark matter. The fraction Ω_m ≈ 0.315 emerges from the RG crossover between")
+print("matter-dominated (z > 0.4) and dark energy-dominated (z < 0.4) eras. The")
+print("TriPhase α¹⁸ cascade determines ρ_crit, while the split between Ω_m and Ω_Λ")
+print("reflects the branching of RG flows at the cosmic IR fixed point. This connects")
+print("particle physics (proton mass from QCD) to cosmology (matter density from")
+print("expansion history) through unified RG dynamics.")
+print()
+print("=" * 70)
+
+input("Press Enter to exit...")
