@@ -2,7 +2,7 @@
 
 All verification and derivative scripts for the TriPhase V16 framework release.
 
-- **Paper verification scripts** (Papers I-IV): reproduce every calculation in the peer review papers
+- **Paper verification scripts** (Papers I-V): reproduce every calculation in the peer review papers
 - **Master derivative chain scripts** (864 scripts): independently verify every row of the V16 Master Matrix across 18 mathematical frameworks
 
 All scripts derive from three observed vacuum properties: epsilon_0, mu_0, Z_0.
@@ -17,8 +17,9 @@ C.R. Fuccillo, Magnetic Innovative Solutions LLC
 |-------|-------|-----------|---------|
 | I | CMB Acoustic Peak Structure from Vacuum Electromagnetic Properties | `Paper_I_CMB/` | 10 |
 | II | Dark Energy Equation of State from Vacuum Mode Structure | `Paper_II_w0/` | 3 |
-| III | Local Laboratory Evidence for Vacuum Mode Structure | `Paper_III_Local/` | -- |
+| III | Local Laboratory Evidence for Vacuum Mode Structure | `Paper_III_Local/` | 2 |
 | IV | Hubble Tension Resolution via Three-Phase Vacuum Structure | `Paper_IV_Hubble/` | 3 |
+| V | SI Derivation of Cosmic Distance and Gravitational Coupling | `Paper_V_SI/` | 4 |
 
 ### Quick Start (Papers)
 
@@ -30,6 +31,7 @@ python verify_calculations.py
 python Paper_I_CMB/verify_cmb_l1_from_epsilon0.py
 python Paper_II_w0/verify_w0_from_mode_structure.py
 python Paper_IV_Hubble/robustness_analysis.py
+python Paper_V_SI/G_units_derivation.py
 ```
 
 ### Key Results (Papers)
@@ -146,6 +148,7 @@ triphase-v16/
 ├── Paper_II_w0/                    # Dark energy equation of state (3 scripts)
 ├── Paper_III_Local/                # Local laboratory evidence
 ├── Paper_IV_Hubble/                # Hubble tension analysis (3 scripts)
+├── Paper_V_SI/                     # SI derivation and distance (4 scripts)
 ├── Data/                           # Raw observational data (Planck 2018)
 ├── Common/                         # Shared utilities
 ├── Derivatives/                    # Master derivative chain (864 scripts)
@@ -161,6 +164,7 @@ triphase-v16/
 - Python 3.8+
 - NumPy
 - SciPy
+- Matplotlib (for distance convergence graphs)
 - Plotly (for interactive charts -- opens in browser)
 
 ## Charts
