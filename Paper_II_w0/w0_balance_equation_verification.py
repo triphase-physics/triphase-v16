@@ -25,7 +25,7 @@ def main():
     print("WHAT THIS CALCULATES:")
     print("-" * 72)
     print("""
-    Paper II derives the dark energy equation of state w0 = -181/216
+    Paper II derives the dark energy equation of state w0 = -5/6
     from pure mode-counting geometry (see verify_w0_from_mode_structure.py).
 
     This script provides an ALTERNATIVE derivation using the measured
@@ -45,6 +45,10 @@ def main():
     Cube roots appear because pressure = energy/volume and volume
     scales as length^3 -- the cube root extracts the per-dimension
     contribution.
+
+    NOTE: An alternate mode-counting derivation with self-coupling
+    suppression gives -181/216 = -0.83796, which differs from -5/6
+    by 0.6%. Both fall within DESI measurement uncertainty.
     """)
 
     # ============================================================
@@ -139,20 +143,23 @@ def main():
     print("=" * 72)
     print()
 
-    w0_mode = -181/216
+    w0_mode = -5/6
+    w0_mode_alt = -181/216
     w0_desi = -0.838
     w0_desi_err = 0.055
 
     diff_mode = abs(w0_calc - w0_mode)
+    diff_mode_pct = diff_mode / abs(w0_mode) * 100
     diff_desi = abs(w0_calc - w0_desi)
     sigma_desi = diff_desi / w0_desi_err
 
-    print(f"  Balance equation: w0 = {w0_calc:.6f}")
-    print(f"  Mode counting:   w0 = -181/216 = {w0_mode:.6f}")
-    print(f"  DESI DR2 (2025): w0 = {w0_desi} +/- {w0_desi_err}")
+    print(f"  Balance equation:     w0 = {w0_calc:.6f}")
+    print(f"  Mode counting:        w0 = -5/6 = {w0_mode:.6f}")
+    print(f"  Alternate (suppress): w0 = -181/216 = {w0_mode_alt:.6f}")
+    print(f"  DESI DR2 (2025):      w0 = {w0_desi} +/- {w0_desi_err}")
     print()
-    print(f"  vs mode counting: |{w0_calc:.6f} - ({w0_mode:.6f})| = {diff_mode:.6f}")
-    print(f"  vs DESI:          |{w0_calc:.6f} - ({w0_desi})| = {diff_desi:.6f} ({sigma_desi:.2f} sigma)")
+    print(f"  vs -5/6:         |{w0_calc:.6f} - ({w0_mode:.6f})| = {diff_mode:.6f} ({diff_mode_pct:.2f}%)")
+    print(f"  vs DESI:         |{w0_calc:.6f} - ({w0_desi})| = {diff_desi:.6f} ({sigma_desi:.2f} sigma)")
     print()
 
     print(f"  Physical interpretation:")

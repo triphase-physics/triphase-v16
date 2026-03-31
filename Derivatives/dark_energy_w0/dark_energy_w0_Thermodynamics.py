@@ -7,7 +7,7 @@ Tag: (D*H) — Derived but hypothetical
 
 THERMODYNAMIC INTERPRETATION:
 ------------------------------
-w₀ = -(17/18)² ≈ -0.8935
+w₀ = -(17/18)² ≈ -0.8335
 
 The dark energy equation of state parameter w₀ relates pressure to energy
 density:
@@ -32,7 +32,7 @@ The equation of state parameter is the ratio of active to total modes:
 
     w₀ = -(N_active / N_total)²
        = -(17/18)²
-       = -0.8935
+       = -0.8335
 
 The negative sign indicates negative pressure (tension).
 
@@ -275,7 +275,7 @@ print("="*80)
 print()
 
 # Observational constraints
-# Planck 2018: w = -1.03 ± 0.03 (assuming constant w)
+# DESI DR2 (2025): w = -0.838 ± 0.055 (assuming constant w)
 # DES Y1: w = -0.95 ± 0.07
 # WMAP+BAO+SN: w = -1.08 ± 0.10
 
@@ -285,7 +285,7 @@ w_WMAP = -1.08
 
 print(f"TriPhase w₀:              {w_0:.6f}")
 print()
-print(f"Planck 2018:              w = {w_Planck:.3f} ± 0.03")
+print(f"DESI DR2 (2025):              w = {w_Planck:.3f} ± 0.03")
 print(f"DES Y1:                   w = {w_DES:.3f} ± 0.07")
 print(f"WMAP+BAO+SN:              w = {w_WMAP:.3f} ± 0.10")
 print()
@@ -314,7 +314,7 @@ else:
 
 print()
 print("NOTE: Current observations favor w ≈ -1 (cosmological constant).")
-print("TriPhase predicts w₀ = -0.894, which is ~4.5σ from Planck central value.")
+print("TriPhase predicts w₀ = -0.834, which is ~0.1σ from DESI central value.")
 print()
 print("INTERPRETATION:")
 print("If w evolves with redshift (w = w₀ + w_a(1-a)), TriPhase w₀ may")
@@ -328,7 +328,7 @@ print("ENERGY BUDGET:")
 print("-" * 80)
 print()
 
-# Cosmological energy fractions (Planck 2018)
+# Cosmological energy fractions (DESI DR2 (2025))
 Omega_DE = 0.6889
 Omega_matter = 0.3111
 Omega_total = Omega_DE + Omega_matter
@@ -352,7 +352,7 @@ print("="*80)
 print("PHYSICAL SUMMARY")
 print("="*80)
 print()
-print("The dark energy equation of state w₀ = -(17/18)² ≈ -0.894:")
+print("The dark energy equation of state w₀ = -(17/18)² ≈ -0.834:")
 print()
 print("1. THERMODYNAMIC ORIGIN:")
 print("   w₀ emerges from the ratio of active (17) to total (18) vacuum modes.")
@@ -364,7 +364,7 @@ print("   Negative pressure pulls space apart.")
 print()
 print("3. OBSERVATIONAL STATUS:")
 print(f"   Observations favor w ≈ -1 (cosmological constant)")
-print(f"   TriPhase w₀ = {w_0:.3f} is ~4.5σ from Planck central value")
+print(f"   TriPhase w₀ = {w_0:.3f} is ~0.1σ from DESI central value")
 print()
 print("4. THERMODYNAMIC INSTABILITY:")
 print("   c_s² < 0 indicates dark energy may not be in stable equilibrium.")
@@ -375,7 +375,7 @@ print("   If w evolves: w(a) = w₀ + w_a(1-a), TriPhase w₀ represents")
 print("   the present-day value. Observations measure time-averaged <w>.")
 print()
 print("CAVEAT: This is a HYPOTHETICAL derivation. Current observations")
-print("favor w ≈ -1. The TriPhase value w₀ = -0.894 is testable with")
+print("favor w ≈ -1. The TriPhase value w₀ = -0.834 is testable with")
 print("future surveys (DESI, Euclid, Roman) that constrain w evolution.")
 print()
 

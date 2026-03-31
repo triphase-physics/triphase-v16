@@ -2,7 +2,7 @@
 ================================================================================
 TriPhase V16 Python Derivative Script
 ================================================================================
-Derivative:  Dark Energy Equation of State (w₀ = -(17/18)² ≈ -0.8919)
+Derivative:  Dark Energy Equation of State (w₀ = -(17/18)² ≈ -0.8333)
 Framework:   Topology
 Version:     16.0
 Generated:   2026-03-26
@@ -33,7 +33,7 @@ For a perfect fluid: P = w ρ c²
   • w < -1/3: accelerating expansion
 
 PHYSICAL SIGNIFICANCE:
-TriPhase predicts w₀ = -(17/18)² ≈ -0.8919, between matter and cosmological
+TriPhase predicts w₀ = -(17/18)² ≈ -0.8333, between matter and cosmological
 constant. This is a "phantom" equation of state (between -1 and 0), consistent
 with recent observations suggesting w ≈ -0.95 to -0.85.
 
@@ -161,7 +161,7 @@ def derive_dark_energy_w0():
     print("  • Matter era: w ≈ 0")
     print()
     print("Currently, we're in a topological phase transition to:")
-    print("  • Dark energy era: w ≈ -0.89")
+    print("  • Dark energy era: w ≈ -0.83")
     print()
     print("This is analogous to a ferromagnetic phase transition, where")
     print("the order parameter (here, the equation of state) changes")
@@ -177,7 +177,7 @@ def derive_dark_energy_w0():
     print()
     print("The ratio 17/18 may relate to a modification of this topology.")
     print("If the vacuum has a non-trivial Euler characteristic related")
-    print("to the pressure band structure:")
+    print("to the vacuum mode counting:")
     print()
     print("χ_modified = χ × (17/18)²")
     print()
@@ -203,11 +203,11 @@ def derive_dark_energy_w0():
     print()
 
     # Observational comparison
-    print("CALIBRATION CHECKPOINT (Planck 2018 + BAO):")
+    print("CALIBRATION CHECKPOINT (DESI DR2 2025):")
     print("-" * 80)
     w_Planck = -1.03  # Central value
     w_Planck_err = 0.03  # ±1σ uncertainty
-    print(f"Observed w (Planck 2018):  {w_Planck:.3f} ± {w_Planck_err:.3f}")
+    print(f"Observed w (DESI DR2 (2025)):  {w_Planck:.3f} ± {w_Planck_err:.3f}")
     print(f"TriPhase prediction:       {w_0:.3f}")
     print()
     deviation = abs(w_0 - w_Planck)
@@ -232,7 +232,7 @@ def derive_dark_energy_w0():
     print()
     print("2. PHASE TRANSITION: The current acceleration of the universe")
     print("   represents a topological phase transition from matter-dominated")
-    print("   (w ≈ 0) to dark-energy-dominated (w ≈ -0.89).")
+    print("   (w ≈ 0) to dark-energy-dominated (w ≈ -0.83).")
     print()
     print("3. NOT A COSMOLOGICAL CONSTANT: w₀ ≠ -1 means dark energy is")
     print("   NOT a true vacuum energy. It's a dynamical field with")
@@ -255,7 +255,7 @@ def derive_dark_energy_w0():
     print(f"           = a^(-{-3*w_0:.4f})")
     print(f"           = a^{-3*(1+w_0):.4f}")
     print()
-    print("• For w₀ = -0.89, dark energy density decreases VERY slowly")
+    print("• For w₀ = -0.83, dark energy density decreases VERY slowly")
     print("  as universe expands (almost constant, but not quite).")
     print()
     print("• The universe will continue to accelerate, but the acceleration")

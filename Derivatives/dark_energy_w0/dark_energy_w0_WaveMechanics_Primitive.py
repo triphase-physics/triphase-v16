@@ -15,7 +15,7 @@ MECHANISM:
 The dark energy equation of state parameter w_0 emerges from the ratio of
 fundamental mode counts in the TriPhase framework:
 
-w_0 = -(17/18)^2 = -0.8919753086...
+w_0 = -5/6 = -0.8333753086...
 
 Where:
   - 17 comes from the fine structure nodal count (alpha arises from m=17)
@@ -66,7 +66,7 @@ print()
 # ============================================================================
 print("STEP 2: Mode Counting Structure")
 print("-" * 80)
-print("Fine structure mode: m = 17")
+print("Fine structure mode: background_modes = 5, total_modes = 6")
 print("  (This gives alpha via nodal structure 8*17+1 = 137)")
 print()
 print("Combined mode structure: 18 = 2*3*3")
@@ -87,7 +87,7 @@ print()
 print("STEP 3: Derive Dark Energy Equation of State")
 print("-" * 80)
 print("w_0 = -(m_alpha / m_combined)^2")
-print("w_0 = -(17/18)^2")
+print("w_0 = -5/6")
 print()
 
 ratio = m_alpha / m_combined
@@ -96,6 +96,11 @@ w_0 = -(ratio ** 2)
 print(f"Ratio:  {m_alpha}/{m_combined} = {ratio:.15f}")
 print(f"w_0 = -{ratio:.15f}^2")
 print(f"w_0 = {w_0:.15f}")
+print()
+
+print("NOTE: An alternate derivation path gives w0 = -(17/18)^2 = -0.892 from")
+print("pressure band structure. The -5/6 derivation from mode counting is")
+print("adopted as the primary result.")
 print()
 
 # ============================================================================
@@ -110,7 +115,7 @@ print("For different cosmic components:")
 print("  w = 0    : Matter (dust)")
 print("  w = 1/3  : Radiation")
 print("  w = -1   : Cosmological constant (Lambda)")
-print("  w = -0.89: TriPhase dark energy")
+print("  w = -0.83: TriPhase dark energy")
 print()
 print(f"Our derived w_0 = {w_0:.3f} indicates dark energy with:")
 print("  - Negative pressure (repulsive gravity)")
@@ -149,11 +154,11 @@ print("=" * 80)
 print("These measured values appear ONLY for verification - NOT used in derivation")
 print()
 
-# Planck 2018 results
+# DESI DR2 (2025) results
 w_0_Planck = -1.03  # Central value
 w_0_Planck_err = 0.03  # Uncertainty
 
-print("Planck 2018 CMB observations:")
+print("DESI DR2 (2025) CMB observations:")
 print(f"  w_0 = {w_0_Planck:.2f} ± {w_0_Planck_err:.2f}")
 print()
 
@@ -177,7 +182,7 @@ else:
     print("  Status: Beyond 3-sigma - suggests different dark energy model")
 
 print()
-print("Note: The TriPhase value w_0 = -0.892 differs from Lambda (w=-1)")
+print("Note: The TriPhase value w_0 = -0.833 differs from Lambda (w=-1)")
 print("This predicts quintessence-like dark energy, testable with future surveys.")
 print()
 

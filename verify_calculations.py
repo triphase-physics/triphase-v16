@@ -13,7 +13,7 @@ Runs 8 independent verifications of the TriPhase framework:
   5. CMB peak l2 = 532.84 from alpha^-1 and mu_0
   6. CMB peak l3 = 816.90 from Z_0
   7. Peak ratio l3/l2 = 3/2
-  8. Dark energy w0 = -181/216 from mode structure
+  8. Dark energy w0 = -5/6 from mode structure
 
 Requires: numpy, scipy
 """
@@ -374,11 +374,11 @@ def main():
 
 
     # ============================================================
-    # VERIFICATION 8: w0 = -181/216 from Mode Structure
+    # VERIFICATION 8: w0 = -5/6 from Mode Structure
     # ============================================================
     def verify_w0():
         print("=" * 72)
-        print("  VERIFICATION 8: w0 = -181/216 from Mode Structure")
+        print("  VERIFICATION 8: w0 = -5/6 from Mode Structure")
         print("=" * 72)
         print()
         print(f"  Derives dark energy equation of state from vacuum geometry.")
@@ -390,23 +390,13 @@ def main():
         N = phases * quadratures
         print(f"  Step 1: N = {phases} phases x {quadratures} quadratures = {N} modes")
 
-        kinetic = 1 / N
-        print(f"  Step 2: Kinetic partition = 1/N = 1/{N} = {kinetic:.6f}")
-        print(f"          In 216ths: {N**2}/{N**3} = 36/216")
+        background = (N - 1) / N
+        print(f"  Step 2: Background fraction = (N-1)/N = {N-1}/{N} = {background:.6f}")
 
-        supp = kinetic ** 2
-        print(f"  Step 3: Self-coupling suppression = (1/{N})^2 = 1/{N**2} = {supp:.10f}")
-
-        k = 1 - supp
-        print(f"  Step 4: Effective scaling k = 1 - 1/{N**2} = {N**2 - 1}/{N**2} = {k:.6f}")
-
-        n = k / 2
-        print(f"  Step 5: Geometric mean n = k/2 = {k:.6f}/2 = {n:.6f}")
-
-        w0 = n / 3 - 1
-        w0_frac = -181 / 216
-        print(f"  Step 6: w0 = n/3 - 1 = {n:.6f}/3 - 1 = {w0:.10f}")
-        print(f"          -181/216 = {w0_frac:.10f}")
+        w0 = -background
+        w0_frac = -5 / 6
+        print(f"  Step 3: w0 = -(background fraction) = -{N-1}/{N} = {w0:.10f}")
+        print(f"          -5/6 = {w0_frac:.10f}")
         print(f"          Difference: {abs(w0 - w0_frac):.2e}")
 
         desi = -0.838
@@ -416,8 +406,23 @@ def main():
         print(f"  DESI DR2 (2025): w0 = {desi} +/- {desi_err}")
         print(f"  Derived: w0 = {w0:.6f}")
         print(f"  Deviation: {sigma:.2f} sigma")
+        print()
+
+        # Show alternate derivation
+        print(f"  NOTE: Alternate derivation with self-coupling suppression:")
+        supp = (1/N) ** 2
+        k = 1 - supp
+        n = k / 2
+        w0_alt = n / 3 - 1
+        print(f"    Suppression = (1/{N})^2 = {supp:.10f}")
+        print(f"    k = 1 - {supp:.10f} = {k:.10f} = 35/36")
+        print(f"    n = k/2 = {n:.10f} = 35/72")
+        print(f"    w0 = n/3 - 1 = {w0_alt:.10f} = -181/216")
+        print(f"    Difference: |{w0_alt:.6f} - {w0:.6f}| = {abs(w0_alt - w0):.6f}")
+        print(f"    Both values fall within DESI uncertainty.")
 
         passed = abs(w0 - w0_frac) < 1e-10 and sigma < 1.0
+        print()
         print(f"  Result: {'PASSED' if passed else 'FAILED'}")
         print()
         return passed
@@ -446,7 +451,7 @@ def main():
     results.append(("6. CMB Peak l3 = 816.90", p6))
 
     results.append(("7. Peak Ratio l3_base/l2_base = 3/2", verify_ratio(l2_base, l3_base)))
-    results.append(("8. w0 = -181/216", verify_w0()))
+    results.append(("8. w0 = -5/6", verify_w0()))
 
     # ============================================================
     # SUMMARY
@@ -470,7 +475,7 @@ def main():
     if all_passed:
         print(f"  ALL {n_total} VERIFICATIONS PASSED")
         print(f"  CMB peaks derived from vacuum electromagnetic constants.")
-        print(f"  w0 = -181/216 derived from mode structure geometry.")
+        print(f"  w0 = -5/6 derived from mode structure geometry.")
     else:
         print(f"  {n_pass}/{n_total} VERIFICATIONS PASSED -- REVIEW REQUIRED")
 

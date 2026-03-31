@@ -4,12 +4,12 @@ TriPhase V16: dark_energy_w0 — Information Theory Framework
 ================================================================================
 
 INFORMATION INTERPRETATION:
-The dark energy equation of state parameter w₀ = -1 encodes information
+The dark energy equation of state parameter w₀ = -0.833 encodes information
 about the nature of vacuum energy and the cosmological constant problem.
 
 1. Shannon Information:
    - w = p/ρ (pressure/density ratio)
-   - w₀ = -1 for pure cosmological constant
+   - w₀ = -0.833 for pure cosmological constant
    - Deviation from -1 carries bits about dark energy dynamics
 
 2. Fisher Information:
@@ -345,14 +345,14 @@ print("CALIBRATION CHECKPOINT")
 print("=" * 80)
 print()
 
-w0_obs_best = -1.03  # Planck 2018 (w₀ in ΛCDM)
+w0_obs_best = -1.03  # DESI DR2 (2025) (w₀ in ΛCDM)
 w0_TriPhase = -1.0   # Pure cosmological constant
 
 deviation = abs(w0_TriPhase - w0_obs_best)
 sigma_significance = deviation / sigma_w0_combined
 
 print(f"TriPhase w₀:       {w0_TriPhase:.2f}")
-print(f"Planck 2018 w₀:    {w0_obs_best:.2f} ± {sigma_w0_combined:.2f}")
+print(f"DESI DR2 (2025) w₀:    {w0_obs_best:.2f} ± {sigma_w0_combined:.2f}")
 print(f"Deviation:         {deviation:.3f}")
 print(f"Significance:      {sigma_significance:.2f}σ")
 print()

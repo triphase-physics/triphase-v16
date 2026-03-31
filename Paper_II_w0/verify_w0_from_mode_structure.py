@@ -1,11 +1,11 @@
 """
-Paper II Calculation: Dark Energy w0 = -181/216 from Mode Structure
-===================================================================
+Paper II Calculation: Dark Energy w0 = -5/6 from Mode Structure
+================================================================
 Companion script for:
   "A Geometric Derivation of the Dark Energy Equation of State"
   C.R. Fuccillo, Magnetic Innovative Solutions LLC
 
-Derives the dark energy equation of state w0 = -181/216 = -0.8380
+Derives the dark energy equation of state w0 = -5/6 = -0.8333
 from three-phase vacuum mode geometry.  No physical constants needed.
 
 Requires: (no dependencies -- pure arithmetic)
@@ -35,12 +35,13 @@ def main():
 
       1. Three phases give 6 modes (3 phases x 2 quadratures)
       2. Vacuum energy splits: 1/6 kinetic (fluctuations), 5/6 background
-      3. Fluctuations cannot self-couple (suppression factor 1/36)
-      4. Effective scaling:  k = 1 - 1/36 = 35/36
-      5. Observer geometric mean:  n = k/2 = 35/72
-      6. Equation of state:  w0 = n/3 - 1 = 35/216 - 1 = -181/216
+      3. Background sector drives dark energy: w0 = -(5/6)
 
-    The result -181/216 = -0.83796... matches DESI to 0.005 (0.04 sigma).
+    The result -5/6 = -0.8333... matches DESI to 0.6% (0.09 sigma).
+
+    NOTE: An alternate derivation via self-coupling suppression gives
+    -181/216 = -0.83796, which is within 0.6% of -5/6. Both values fall
+    within the DESI measurement uncertainty.
     """)
 
     # ============================================================
@@ -76,98 +77,39 @@ def main():
     print(f"    Kinetic sector (fluctuations):   1/{total_modes} = {kinetic_frac:.6f}")
     print(f"    Background sector (dark energy): {total_modes-1}/{total_modes} = {background_frac:.6f}")
     print()
-    print(f"  In 216ths (common denominator = 6^3 = {6**3}):")
-    print(f"    Kinetic:    36/216 = 1/6")
-    print(f"    Background: 180/216 = 5/6")
+    print(f"  The background sector consists of {total_modes-1} of {total_modes} modes.")
+    print(f"  This gives the dark energy fraction: {total_modes-1}/{total_modes} = 5/6")
     print()
 
     # ============================================================
-    # STEP 3: Self-coupling suppression
+    # STEP 3: Equation of state
     # ============================================================
     print("=" * 72)
-    print("  STEP 3: Self-Coupling Suppression")
+    print("  STEP 3: Dark Energy Equation of State")
     print("=" * 72)
     print()
 
-    suppression = kinetic_frac ** 2
-    print(f"  Fluctuations cannot self-couple.")
-    print(f"  (A wave cannot push itself -- like pulling yourself up by bootstraps.)")
-    print()
-    print(f"  Suppression = (kinetic fraction)^2")
-    print(f"              = (1/{total_modes})^2")
-    print(f"              = 1/{total_modes**2}")
-    print(f"              = {suppression:.10f}")
-    print()
+    w0 = -background_frac
+    w0_exact = -5 / 6
 
-    # ============================================================
-    # STEP 4: Effective scaling exponent
-    # ============================================================
-    print("=" * 72)
-    print("  STEP 4: Effective Scaling Exponent")
-    print("=" * 72)
+    print(f"  The background pressure opposes expansion (negative pressure).")
+    print(f"  Equation of state: w0 = -(background fraction)")
     print()
-
-    k = 1 - suppression
-    print(f"  Remove the suppressed self-coupling component:")
-    print(f"    k = 1 - 1/{total_modes**2}")
-    print(f"      = 1 - 1/36")
-    print(f"      = 35/36")
-    print(f"      = {k:.10f}")
-    print(f"  Check: 35/36 = {35/36:.10f}")
-    print()
-
-    # ============================================================
-    # STEP 5: Observer geometric mean
-    # ============================================================
-    print("=" * 72)
-    print("  STEP 5: Observer Geometric Mean")
-    print("=" * 72)
-    print()
-
-    n = k / 2
-    print(f"  We observe from within the fluctuation sector.")
-    print(f"  The observable scaling is the geometric mean:")
-    print(f"    n = k / 2")
-    print(f"      = (35/36) / 2")
-    print(f"      = 35/72")
-    print(f"      = {n:.10f}")
-    print(f"  Check: 35/72 = {35/72:.10f}")
-    print()
-
-    # ============================================================
-    # STEP 6: Equation of state
-    # ============================================================
-    print("=" * 72)
-    print("  STEP 6: Equation of State w0 = n/3 - 1")
-    print("=" * 72)
-    print()
-
-    w0 = n / 3 - 1
-    w0_exact = -181 / 216
-
-    print(f"  Standard cosmological identity: w = n/3 - 1")
-    print()
-    print(f"    w0 = n/3 - 1")
-    print(f"       = (35/72)/3 - 1")
-    print(f"       = 35/216 - 1")
-    print(f"       = 35/216 - 216/216")
-    print(f"       = -181/216")
+    print(f"    w0 = -{total_modes-1}/{total_modes}")
+    print(f"       = -5/6")
     print(f"       = {w0:.10f}")
     print()
     print(f"  Exact fraction check:")
-    print(f"    -181/216 = {w0_exact:.10f}")
+    print(f"    -5/6     = {w0_exact:.10f}")
     print(f"    Computed = {w0:.10f}")
     print(f"    Match:     {abs(w0 - w0_exact):.2e}")
     print()
-    print(f"  Denominator: 216 = 6^3 = {6**3}")
-    print(f"  Numerator:   181 = 216 - 35")
-    print()
 
     # ============================================================
-    # STEP 7: Compare to DESI observation
+    # STEP 4: Compare to DESI observation
     # ============================================================
     print("=" * 72)
-    print("  STEP 7: Comparison to DESI DR2 (2025)")
+    print("  STEP 4: Comparison to DESI DR2 (2025)")
     print("=" * 72)
     print()
 
@@ -175,19 +117,55 @@ def main():
     desi_err = 0.055
     deviation = abs(w0 - desi_w0)
     sigma = deviation / desi_err
+    error_pct = deviation / abs(desi_w0) * 100
 
     print(f"  DESI DR2 + CMB + Pantheon+ (2025):")
     print(f"    w0 = {desi_w0} +/- {desi_err}")
     print()
     print(f"  This derivation:")
-    print(f"    w0 = -181/216 = {w0:.4f}")
+    print(f"    w0 = -5/6 = {w0:.4f}")
     print()
     print(f"  Deviation:  |{w0:.4f} - ({desi_w0})| = {deviation:.4f}")
+    print(f"  Error:      {error_pct:.2f}%")
     print(f"  In sigma:   {deviation:.4f} / {desi_err} = {sigma:.2f} sigma")
     print()
     print(f"  LCDM prediction:  w0 = -1")
     print(f"  LCDM deviation:   |{desi_w0} - (-1)| = {abs(desi_w0 - (-1)):.3f}")
     print(f"  LCDM in sigma:    {abs(desi_w0 - (-1)):.3f} / {desi_err} = {abs(desi_w0 - (-1))/desi_err:.1f} sigma")
+    print()
+
+    # ============================================================
+    # STEP 5: Alternate derivation via self-coupling suppression
+    # ============================================================
+    print("=" * 72)
+    print("  STEP 5: Alternate Derivation (Self-Coupling Suppression)")
+    print("=" * 72)
+    print()
+
+    print(f"  An alternate approach accounts for self-coupling suppression:")
+    print()
+
+    suppression = kinetic_frac ** 2
+    print(f"  Suppression = (1/{total_modes})^2 = 1/{total_modes**2} = {suppression:.10f}")
+
+    k = 1 - suppression
+    print(f"  Effective scaling k = 1 - 1/{total_modes**2} = {k:.10f} = 35/36")
+
+    n = k / 2
+    print(f"  Geometric mean n = k/2 = {n:.10f} = 35/72")
+
+    w0_alt = n / 3 - 1
+    w0_alt_frac = -181 / 216
+    print(f"  w0 = n/3 - 1 = {w0_alt:.10f} = -181/216 = {w0_alt_frac:.10f}")
+    print()
+
+    diff_alt = abs(w0_alt - w0)
+    diff_alt_pct = diff_alt / abs(w0) * 100
+    print(f"  Difference from -5/6:")
+    print(f"    |-181/216 - (-5/6)| = {diff_alt:.6f}")
+    print(f"    Error: {diff_alt_pct:.2f}%")
+    print()
+    print(f"  Both -5/6 and -181/216 are within DESI measurement uncertainty.")
     print()
 
     passed = abs(w0 - w0_exact) < 1e-10 and sigma < 1.0
@@ -197,7 +175,7 @@ def main():
     print()
 
     print("=" * 72)
-    print(f"  COMPLETE -- w0 = -181/216 = {w0:.4f}, DESI match at {sigma:.2f} sigma")
+    print(f"  COMPLETE -- w0 = -5/6 = {w0:.4f}, DESI match at {sigma:.2f} sigma")
     print("=" * 72)
     print()
 

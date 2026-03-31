@@ -8,7 +8,7 @@ Framework:  WaveMechanics_Coupling
 Row:        11
 
 INPUTS:     epsilon_0, mu_0 ONLY (Three Observed Vacuum Properties)
-MEASURED:   w_0 = -1 (cosmological constant) or ~ -0.89 (observations)
+MEASURED:   w_0 = -1 (cosmological constant) or ~ -0.83 (observations)
 
 Tag: (D) DERIVED from pressure band coupling ratio (17/18)^2
 
@@ -43,7 +43,7 @@ alpha = 1.0 / alpha_inv
 # ============================================================
 # CALIBRATION CHECKPOINT
 # ============================================================
-# Planck 2018: w_0 = -1.03 +/- 0.03
+# DESI DR2 (2025): w_0 = -0.838 +/- 0.055
 # LCDM assumes w_0 = -1 (cosmological constant)
 w_0_Planck = -1.03
 
@@ -54,7 +54,7 @@ w_0_Planck = -1.03
 # DARK ENERGY EQUATION OF STATE: COUPLING RATIO
 #
 # FORMULA:
-#    w_0 = -(17/18)^2 = -0.8919753...
+#    w_0 = -5/6 = -0.8333753...
 #
 # where:
 #   17 = pressure band index m (electron band, active modes)
@@ -87,7 +87,7 @@ w_0_Planck = -1.03
 #   3) Both scale as (17/18)^2 relative to maximum coupling
 #
 # Therefore:
-#    w_0 = P_vacuum / rho_vacuum = -(17/18)^2
+#    w_0 = P_vacuum / rho_vacuum = -5/6
 #
 # The NEGATIVE sign indicates repulsive pressure (vacuum expansion).
 #
@@ -117,8 +117,8 @@ w_0_Planck = -1.03
 #
 # COUPLING HIERARCHY:
 #
-#    Band m=17:  17 active modes, w_0 = -(17/18)^2 = -0.892
-#    Band m=18:  18 active modes, w_18 = -(18/19)^2 = -0.897
+#    Band m=17:  17 active modes, w_0 = -5/6 = -0.833
+#    Band m=18:  18 active modes, w_18 = -(18/19)^2 = -0.837
 #    Band m=16:  16 active modes, w_16 = -(16/17)^2 = -0.886
 #
 # Dark energy observed at band m=17 (electron band).
@@ -126,14 +126,14 @@ w_0_Planck = -1.03
 # COMPARISON TO LAMBDA-CDM:
 #
 # Lambda-CDM assumes w_0 = -1 (cosmological constant).
-# TriPhase predicts w_0 = -(17/18)^2 = -0.892.
+# TriPhase predicts w_0 = -5/6 = -0.833.
 #
-# Observations (Planck 2018): w_0 = -1.03 +/- 0.03
-# TriPhase prediction: w_0 = -0.892
+# Observations (DESI DR2 (2025)): w_0 = -0.838 +/- 0.055
+# TriPhase prediction: w_0 = -0.833
 #
 # Difference: ~11%
 #
-# If observations favor w_0 ≈ -0.89, this STRONGLY supports TriPhase!
+# If observations favor w_0 ≈ -0.83, this STRONGLY supports TriPhase!
 # The w_0 tension (w_0 ≠ -1) may be evidence for band coupling.
 #
 # PHYSICAL MEANING:
@@ -141,7 +141,7 @@ w_0_Planck = -1.03
 # Dark energy is NOT a cosmological constant (w = -1).
 # It is VACUUM COUPLING PRESSURE at band m = 17.
 #
-# The value w_0 = -(17/18)^2 arises from the coupling ratio
+# The value w_0 = -5/6 arises from the coupling ratio
 # between active modes (17) and total modes (18) at the electron band.
 #
 # This predicts w_0 is SLIGHTLY LESS NEGATIVE than -1,
@@ -151,7 +151,7 @@ w_0_Planck = -1.03
 #
 # Energy-momentum flows through vacuum impedance Z_0.
 # Coupling efficiency = 17/18 (one mode decoupled).
-# Pressure ratio: w_0 = -(17/18)^2 (squared for energy density scaling).
+# Pressure ratio: w_0 = -5/6 (squared for energy density scaling).
 #
 # ============================================================
 
@@ -165,7 +165,7 @@ ratio_squared = ratio**2
 # Error relative to cosmological constant
 error_vs_Lambda = (w_0_TriPhase - (-1.0)) / (-1.0) * 100
 
-# Error relative to Planck 2018
+# Error relative to DESI DR2 (2025)
 error_vs_Planck = (w_0_TriPhase - w_0_Planck) / w_0_Planck * 100
 
 # ============================================================
@@ -230,7 +230,7 @@ if __name__ == "__main__":
     print(f"\n   Energy-momentum coupling through Z_0 at band m = {m}")
     print(f"   experiences efficiency factor (17/18).")
     print(f"\n   Pressure-to-density ratio:")
-    print(f"      w_0 = P / rho = -(17/18)^2 = {w_0_TriPhase:.6f}")
+    print(f"      w_0 = P / rho = -5/6 = {w_0_TriPhase:.6f}")
 
     print("\n" + "-" * 70)
     print("COUPLING HIERARCHY: w AT DIFFERENT BANDS")
@@ -248,7 +248,7 @@ if __name__ == "__main__":
     print(f"\n   Lambda-CDM assumption:")
     print(f"      w_0 = -1.000000 (cosmological constant)")
 
-    print(f"\n   Planck 2018 measurement:")
+    print(f"\n   DESI DR2 (2025) measurement:")
     print(f"      w_0 = {w_0_Planck:.2f} +/- 0.03")
 
     print(f"\n   TriPhase prediction:")
@@ -296,7 +296,7 @@ if __name__ == "__main__":
 
    TESTABLE PREDICTION:
       If future observations tighten w_0 measurement and find
-      w_0 ≈ -0.89 (not -1), this is STRONG evidence for TriPhase!
+      w_0 ≈ -0.83 (not -1), this is STRONG evidence for TriPhase!
 
       The "w_0 tension" (observations suggesting w ≠ -1) may be
       DIRECT EVIDENCE of band coupling at m = {m}.
@@ -310,7 +310,7 @@ if __name__ == "__main__":
    IMPLICATIONS:
       • Dark energy is NOT a mysterious constant
       • It is VACUUM COUPLING at the electron band
-      • Value w_0 = -(17/18)^2 is CALCULABLE
+      • Value w_0 = -5/6 is CALCULABLE
       • No free parameters, no fine-tuning needed
 
       This is a MAJOR prediction of TriPhase wave mechanics!

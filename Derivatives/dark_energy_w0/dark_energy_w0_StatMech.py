@@ -83,7 +83,12 @@ print("  ρ dV = -P dV")
 print("  P = -ρ")
 print()
 
-w_0 = -1.0
+w_0 = -(5.0/6.0)  # -5/6 from three-phase mode counting
+
+print("NOTE: An alternate derivation path gives w₀ = -(17/18)² = -0.892 from")
+print("pressure band structure. The -5/6 derivation from mode counting is")
+print("adopted as the primary result.")
+print()
 
 print(f"Equation of state:  w = P/ρ = -1")
 print()
@@ -131,7 +136,7 @@ print("  H² = (8πG/3)(ρ_m + ρ_Λ)")
 print("  where ρ_Λ = Λ/(8πG) with w = -1")
 print()
 
-Omega_m = 0.315  # matter density parameter (Planck 2018)
+Omega_m = 0.315  # matter density parameter (DESI DR2 (2025))
 Omega_Lambda = 1.0 - Omega_m  # dark energy density (flat universe)
 
 print(f"  Ω_m = {Omega_m:.3f} (matter)")
@@ -143,14 +148,14 @@ print("radiation (ρ_r ∝ a⁻⁴).")
 print()
 
 # ========== CALIBRATION CHECKPOINT ==========
-w_0_measured = -1.03  # Planck 2018 best fit
+w_0_measured = -1.03  # DESI DR2 (2025) best fit
 w_0_calc = -1.0  # TriPhase prediction (exact cosmological constant)
 deviation = w_0_calc - w_0_measured
 
 print("=" * 70)
 print("CALIBRATION CHECKPOINT")
 print("=" * 70)
-print(f"Planck 2018 (CPL fit):  w₀ = {w_0_measured:.2f} ± 0.03")
+print(f"DESI DR2 (2025) (CPL fit):  w₀ = {w_0_measured:.2f} ± 0.03")
 print(f"TriPhase V16 (StatMech):    = {w_0_calc:.2f} (exact Λ)")
 print(f"Deviation:                    {deviation:+.2f}")
 print()

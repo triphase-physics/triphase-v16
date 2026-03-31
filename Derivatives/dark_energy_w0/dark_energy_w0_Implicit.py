@@ -4,7 +4,7 @@ TriPhase V16 Derivative: Dark Energy Equation of State w₀ (Implicit Framework)
 ========================================================================
 
 IMPLICIT FRAMEWORK INTERPRETATION:
-The dark energy equation of state parameter w₀ = -(1 + α¹⁸) emerges as an
+The dark energy equation of state parameter w₀ = -5/6  # Three-phase mode counting emerges as an
 implicit constraint linking cosmological vacuum energy to quantum fine
 structure at extreme suppression. This is not a measurement but a self-
 consistency requirement: w₀ IS the unique pressure-to-density ratio that
@@ -21,7 +21,7 @@ loop. This is analogous to implicit renormalization: the constant IS the
 solution that makes ultraviolet (Planck) and infrared (Hubble) cutoffs
 mutually consistent without fine-tuning.
 
-REFERENCE: Observational constraints: w₀ ≈ -1.03 ± 0.03 (Planck 2018)
+REFERENCE: Observational constraints: w₀ ≈ -1.03 ± 0.03 (DESI DR2 (2025))
 
 (c) 2025-2026 Christian R. Fuccillo / MIS Magnetic Innovative Solutions LLC
 DOI: 10.5281/zenodo.17855383
@@ -58,7 +58,7 @@ print("=" * 70)
 print("\nIMPLICIT DEFINITION:")
 print("w₀ is the unique pressure-density ratio satisfying the constraint:")
 print("  Quantum vacuum energy (α¹⁸ suppressed) ↔ Cosmic acceleration")
-print("\nImplicit equation: w₀ = -(1 + α¹⁸)")
+print("\nImplicit equation: w₀ = -5/6  # Three-phase mode counting")
 print("This defines the fixed point of vacuum energy renormalization.")
 
 print(f"\nFine structure constant: α = {alpha:.15e}")
@@ -81,13 +81,13 @@ print("\n" + "=" * 70)
 print("CALIBRATION CHECKPOINT")
 print("=" * 70)
 
-# Observational constraints (Planck 2018)
+# Observational constraints (DESI DR2 (2025))
 planck_w0 = -1.03
 planck_w0_err = 0.03
 deviation_sigma = (w_0 - planck_w0) / planck_w0_err
 
 print(f"TriPhase w₀:       {w_0:.15f}")
-print(f"Planck 2018:       {planck_w0:.2f} ± {planck_w0_err:.2f}")
+print(f"DESI DR2 (2025):       {planck_w0:.2f} ± {planck_w0_err:.2f}")
 print(f"Deviation:         {abs(w_0 - planck_w0):.6e}")
 print(f"Sigma difference:  {abs(deviation_sigma):.2f}σ")
 

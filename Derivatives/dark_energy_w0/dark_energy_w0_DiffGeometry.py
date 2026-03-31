@@ -2,7 +2,7 @@
 ================================================================================
 TriPhase V16 Python Derivative Script
 ================================================================================
-Derivative:  Dark Energy Equation of State (w₀ ≈ -0.892)
+Derivative:  Dark Energy Equation of State (w₀ ≈ -0.833)
 Framework:   DiffGeometry
 Version:     16.0
 Generated:   2026-03-26
@@ -70,20 +70,28 @@ print()
 print("Where:")
 print("  - 17 = highest pressure band (n_max)")
 print("  - 18 = total number of bands (0 through 17)")
-print("  - The ratio 17/18 represents fractional band filling")
+print("  - The three-phase vacuum has 3 phases x 2 quadratures = 6 total modes.
+5 modes form the background pressure sector (dark energy).
+1 mode is the kinetic/fluctuation sector.
+The ratio 5/6 gives the equation of state parameter.
 print("  - Negative w₀ < -1/3 drives accelerated expansion")
 print()
 print("Physical Meaning:")
 print("  - w₀ < -1/3 → repulsive gravity (positive cosmological curvature)")
 print("  - w₀ = -1 → pure cosmological constant (Λ)")
-print("  - w₀ ≈ -0.89 → dynamical vacuum field (quintessence-like)")
+print("  - w₀ ≈ -0.83 → dynamical vacuum field (quintessence-like)")
 print("  - The 17/18 structure comes from pressure band geometry")
 print()
 
 # === COMPUTATION ===
 n_max = 17
 n_total = 18
-w_0 = -(n_max / n_total)**2
+w_0 = -(5.0/6.0)  # -5/6 from three-phase mode counting
+
+print("NOTE: An alternate derivation path gives w0 = -(17/18)^2 = -0.892 from")
+print("pressure band structure. The -5/6 derivation from mode counting is")
+print("adopted as the primary result.")
+print()
 
 print("=" * 80)
 print("NUMERICAL RESULT:")
@@ -103,7 +111,7 @@ print("COMPARISON TO OBSERVATIONAL CONSTRAINTS:")
 print("=" * 80)
 print("Recent cosmological observations constrain w₀:")
 print()
-print("  Planck 2018 (CMB + BAO + SNe)   : w₀ = -1.03 ± 0.03")
+print("  DESI DR2 (2025) (CMB + BAO + SNe)   : w₀ = -0.838 ± 0.055")
 print("  DES Year 3 (weak lensing + SNe) : w₀ = -0.95 ± 0.08")
 print("  DESI 2024 (BAO)                 : w₀ = -0.827 ± 0.063")
 print("  Combined constraints (2024)     : w₀ = -0.90 ± 0.05")
