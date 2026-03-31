@@ -15,7 +15,7 @@ C.R. Fuccillo, Magnetic Innovative Solutions LLC
 
 | Paper | Title | Directory | Scripts |
 |-------|-------|-----------|---------|
-| I | CMB Acoustic Peak Structure from Vacuum Electromagnetic Properties | `Paper_I_CMB/` | 10 |
+| I | CMB Acoustic Peak Structure from Vacuum Electromagnetic Properties | `Paper_I_CMB/` | 11 |
 | II | Dark Energy Equation of State from Vacuum Mode Structure | `Paper_II_w0/` | 3 |
 | III | Local Laboratory Evidence for Vacuum Mode Structure | `Paper_III_Local/` | 2 |
 | IV | Hubble Tension Resolution via Three-Phase Vacuum Structure | `Paper_IV_Hubble/` | 3 |

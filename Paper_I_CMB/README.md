@@ -20,4 +20,5 @@ from three vacuum electromagnetic properties:
 - `verify_bessel_mode_ratios.py` -- Bessel zero ratios match mode integer ratios
 - `x1_bessel_verification.py` -- Extended Bessel zero verification
 - `analyze_cmb_peaks.py` -- Gaussian peak fitting on Planck TT power spectrum
+- `fig_cmb_spectrum.py` -- Planck TT power spectrum figure with TriPhase peak predictions (PDF + interactive HTML)
 - `fig_bessel_ratios.py` -- Interactive Plotly chart of Bessel ratio comparisons
